@@ -1,9 +1,15 @@
 #!/usr/bin/env ruby
 
-keys = []
+key_h = {}
 
-IO.foreach("sorted.txt") do |key|
-  keys << key.chomp
+IO.foreach("sorted.txt") do |l|
+  key = l.chomp
+  len = key.length
+  if (key_h.has_key?(len))
+    key_h[len] << key
+  else
+    key_h[len] = [key]
+  end
 end
 
 print "\"ingress passcode file syntax definition\n"
@@ -13,13 +19,19 @@ print "\n"
 print "syntax case ignore\n"
 print "\n"
 
-keys.each { |key|
-  print "syntax match ipcKey /#{key}/\n"
+len_list_sort = key_h.keys.sort
+
+len_list_sort.each { |len|
+  key_h[len].each { |key|
+    print "syntax match ipcKey /#{key}/\n"
+  }
 }
 print "\n"
 
-keys.each { |key|
-  print "syntax match ipcMatchedKey /^[2-9]\\a\\a\\a[2-9]#{key}\\a[2-9]\\a[2-9]\\a$/hs=s+5,he=e-5\n"
+len_list_sort.each { |len|
+  key_h[len].each { |key|
+    print "syntax match ipcMatchedKey /^[2-9]\\a\\a\\a[2-9]#{key}\\a[2-9]\\a[2-9]\\a$/hs=s+5,he=e-5\n"
+  }
 }
 print "\n"
 
