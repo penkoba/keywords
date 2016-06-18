@@ -15,6 +15,7 @@ end
 print "\"ingress passcode file syntax definition\n"
 print "\"syntax match ipcKeyLocation /^[2-9]\\a\\a\\a[2-9].*\\a[2-9]\\a[2-9]\\a$/hs=s+5,he=e-5\n"
 print "syntax match ipcKeyLocation /^\\d\\a\\a\\a\\d.*\\a\\d\\a\\d\\a$/hs=s+5,he=e-5\n"
+print "syntax match ipcKeyLocation /^\\a\\a\\a\\d\\d.*\\d\\d\\d\\a\\a$/hs=s+5,he=e-5\n"
 print "\n"
 print "syntax case ignore\n"
 print "\n"
@@ -31,6 +32,7 @@ print "\n"
 len_list_sort.each { |len|
   key_h[len].each { |key|
     print "syntax match ipcMatchedKey /^[2-9]\\a\\a\\a[2-9]#{key}\\a[2-9]\\a[2-9]\\a$/hs=s+5,he=e-5\n"
+    print "syntax match ipcMatchedKey /^\\a\\a\\a[2-9][2-9]#{key}[2-9][2-9][2-9]\\a\\a$/hs=s+5,he=e-5\n"
   }
 }
 print "\n"
