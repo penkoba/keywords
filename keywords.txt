@@ -99,6 +99,7 @@ creation
 creative
 creativity
 crypto
+cthulhu
 cube
 cybella
 dalby
@@ -286,6 +287,7 @@ new
 ni
 niantic
 no
+noir
 not
 nourish
 nova
@@ -421,6 +423,7 @@ symbol
 symbols
 syphax
 technology
+tecthulhu
 tenniel
 them
 thought
@@ -446,6 +449,7 @@ veritas
 verity
 verum
 vi
+via
 vialux
 vianoir
 victor
